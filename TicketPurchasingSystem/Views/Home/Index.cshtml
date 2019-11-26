@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    table{
+        border-color: #131832;
+        margin-top: 50px;
+    }
+    table td, table th{
+        text-align:center;
+        padding: 200px;
+    }
+    table th{
+        background: #475E86;
+    }
+    .table {
+        border-color: #131832;
+}
+</style>
+
+    <table class="table table-bordered" >
+        <tr>
+            <th>Journey Date</th>
+            <th>Destination</th>
+            <th>Coatch Type</th>
+            <th>Total Available Ticket</th>
+            <th>Number of Pending Ticket</th>
+            <th>Number of Sold Ticket</th>
+        </tr>
+        <tr>
+            <td rowspan="2">@DateTime.Now.ToShortDateString()</td>
+            <td rowspan="2">Dhaka to Rajshahi</td>
+            <td>S_Chair</td>
+            <td>@Session["AvailableS_ChairTicket"]</td>
+            <td>@Session["NumberOfS_ChairPendingTicket"]</td>
+            <td>@Session["NumberOfS_ChairSoldTicket"]</td>
+        </tr>
+        <tr>
+            <td>AC</td>
+            <td>@Session["AvailableACTicket"]</td>
+            <td>@Session["NumberOfACPendingTicket"]</td>
+            <td>@Session["NumberOfACSoldTicket"]</td>
+        </tr>
+    </table>
+<br/>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

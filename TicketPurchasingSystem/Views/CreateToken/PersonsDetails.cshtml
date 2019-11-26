@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "PersonsDetails";
+}
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    .dl-horizontal dt {
+        text-align: left;
+        width: 230px;
+    }
+
+    #Text {
+        width: 50%;
+        margin: auto auto 100px auto;
+    }
+
+    .btn-custom {
+        background: #232C47;
+        color: white;
+        border-radius: 30px;
+        border: 1px solid #F27F00;
+    }
+
+        .btn-custom:hover {
+            background: #2c385a;
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div id="Text">
+            <h2>Persons Details</h2>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    <label class="label-for-input">@Html.DisplayName("Person ID")</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayName(Request.QueryString["PersonID"])
+                </dd>
+
+                <dt>
+                    <label class="label-for-input"> @Html.DisplayName("Person Name")</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayName(Request.QueryString["PersonName"])
+                </dd>
+
+                <dt>
+                    <label class="label-for-input">@Html.DisplayName("Person Father's Name")</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayName(Request.QueryString["PersonFathersName"])
+                </dd>
+
+                <dt>
+                    <label class="label-for-input">@Html.DisplayName("Person Mother's Name")</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayName(Request.QueryString["PersonMothersName"])
+                </dd>
+
+                <dt>
+                    <label class="label-for-input"> @Html.DisplayName("Date Of Birth")</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayName(Request.QueryString["DateOfBirth"])
+                </dd>
+
+                <dt>
+                    <label class="label-for-input">@Html.DisplayName("Person's Address")</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayName(Request.QueryString["PersonAddress"])
+                </dd>
+
+            </dl>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-2 col-xs-4">
+                @Html.ActionLink("Back to Search Page", "Index", null, htmlAttributes: new { @class = "btn btn-primary btn-custom" })
+            </div>
+            <div class="col-md-offset-1 col-md-5 col-xs-5">
+                <input type="submit" value="Continue To Generate Token" class="btn btn-primary btn-custom" />
+            </div>
+        </div>
+    </div>
+}
+<br />
+<br />
+<br />

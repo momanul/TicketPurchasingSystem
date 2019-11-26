@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TicketPurchasingSystem.Models.TicketDetails>
+
+@{
+    ViewBag.Title = "Test";
+}
+    <style>
+        table {
+            margin-top: 50px;
+        }
+
+            table td, table th {
+                text-align: center;
+                padding: 200px;
+            }
+    </style>
+
+<h2>Test</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Journey Date</th>
+        <th>Station To Station</th>
+        <th>Coatch Type</th>
+        <th>Total Available Ticket</th>
+        <th>Number of Pending Ticket</th>
+        <th>Number of Sold Ticket</th>
+        <th>Train Departer Time</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td rowspan="2">
+                @Html.DisplayFor(modelItem => item.JourneyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationToStation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoatchType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAvailableTicket)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfPendingTicket)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSoldTicket)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainDeparterTime)
+            </td>
+        </tr>
+    }
+
+</table>

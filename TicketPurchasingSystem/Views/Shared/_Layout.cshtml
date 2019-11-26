@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<style>
+    *{
+        font-family:Helvetica;
+    }
+    body{
+        background: #313F65;
+        background-image: linear-gradient(-90deg, #222c46, #313F65, #222c46);
+        color: white;
+    }
+    #navbar{
+        background: #131832;
+        color: #3596CA;
+    }
+    #navbarUiLiA ul li:hover{
+        background: #DCDCDC;
+    }
+    #navbarUiLiA ul li a{
+        color: #3596CA;
+    }
+    footer{
+        text-align: center;
+    }
+    #homeButton{
+        background: #131832;
+        color: white;
+        border: 0px;
+        font-size: 20px;
+    }
+    .label-for-input{
+        background-image: linear-gradient(to right, #232C47, #303E63);
+        padding: 7px;
+        padding-left: 10px;
+        width: 250px;
+    }
+</style>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button id="homeButton" onclick="location.href='@Url.Action("Index", "Home")';return false;">
+                    <img src="~/Photos/42536-station-icon.png" />My Railway Station
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbarUiLiA">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Purchage Ticket", "PurchageTicket", "Home")</li>
+                    <li>@Html.ActionLink("Create Token", "Index", "CreateToken")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - MyRailway Station</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

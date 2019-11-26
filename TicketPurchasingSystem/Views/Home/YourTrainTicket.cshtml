@@ -1,0 +1,135 @@
+﻿@model TicketPurchasingSystem.Models.DetailsOfFullTicket
+
+@{
+    ViewBag.Title = "YourTrainTicket";
+}
+<style>
+    .PersonID {
+        background: #232C47;
+        border-color: #204c73;
+        color: white;
+    }
+
+    #ticketDetails {
+        margin: auto;
+        width: 30%;
+        border: 1px solid white;
+        padding: 10px;
+        background: #311304;
+        border-radius: 10px;
+    }
+
+    .dl-horizontal dt {
+        text-align: left;
+    }
+    h2, h4{
+        text-align: center;
+    }
+    .btn-print{
+        background: #303E64;
+        color: white;
+        border-radius: 30px;
+        width: 200px;
+        border: 1px solid #48801F;
+    }
+</style>
+<h2>Your Train Ticket</h2>
+<hr />
+<div id="ticketDetails">
+    <h4>Ticket Details</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonFathersName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonFathersName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JourneyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JourneyDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeOfJourney)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeOfJourney)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JourneyStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JourneyStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JourneyEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JourneyEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoatchType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoatchType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BogyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BogyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfSeat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfSeat)
+        </dd>
+
+    </dl>
+    
+</div>
+<div>
+    <div >
+        <input type="submit" value="Print Token" class="btn btn-primary btn-print" />
+    </div>
+</div>

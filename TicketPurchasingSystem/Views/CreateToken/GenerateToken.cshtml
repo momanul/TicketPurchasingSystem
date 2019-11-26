@@ -1,0 +1,110 @@
+﻿@model TicketPurchasingSystem.Models.CreateTokenModel
+@using TicketPurchasingSystem.Models
+
+@{
+    ViewBag.Title = "Create Token";
+}
+<style>
+    #JourneyEnd, #JourneyStart, #CoatchType, #TimeOfJourney{
+        padding: 7px;
+        width: 300px;
+        border-radius: 5px;
+        background: #232C47;
+        border-color: #204c73;
+    }
+    .JourneyDate {
+        padding: 5px;
+        width: 300px;
+        border-radius: 5px; 
+        background: #232C47;
+        border-color: #204c73;
+    }
+    .SubmitButton{
+        width: 300px;
+        background: #232C47;
+        border-color: #F27F00;
+        border-radius: 30px;
+        padding: 8px;
+    }
+    .SubmitButton:hover{
+        background: #2c385a;
+    }
+    h2, h4{
+        text-align: center;
+    }
+</style>
+
+<h2>Create A Token</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Fill This Form To Create A Token</h4>
+    <h4>Be Carefull Bescause This Form is Available For First Time Only in A Day</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.JourneyDate, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.EditorFor(model => model.JourneyDate, new { htmlAttributes = new { @class = "JourneyDate", type="date" } })
+            @Html.ValidationMessageFor(model => model.JourneyDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.JourneyStart, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.DropDownList("JourneyStart", "Select Station To")
+            @Html.ValidationMessageFor(model => model.JourneyStart, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.JourneyEnd, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.DropDownList("JourneyEnd", "Select Station Form")
+            @Html.ValidationMessageFor(model => model.JourneyEnd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CoatchType, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.DropDownList("CoatchType", new List<SelectListItem>
+            {
+                new SelectListItem{ Text = "AC", Value ="AC" },
+                new SelectListItem{ Text = "S_CHAIR", Value ="S_CHAIR" }
+            }, "Select Coatch Type")
+            @Html.ValidationMessageFor(model => model.CoatchType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TimeOfJourney, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.DropDownList("TimeOfJourney", new List<SelectListItem>
+            {
+                new SelectListItem{ Text = "07:14 AM", Value ="07:14 AM" },
+                new SelectListItem{ Text = "01:00 PM", Value ="01:00 PM" },
+                new SelectListItem{ Text = "04:30 PM", Value ="04:30 PM" },
+                new SelectListItem{ Text = "11:20 PM", Value ="11:20 PM" }
+            }, "Select Journey Time")
+            @Html.ValidationMessageFor(model => model.TimeOfJourney, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-5 col-md-7">
+            <input type="submit" value="Click Here To Create" class="btn btn-primary SubmitButton" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<br />
+<br />
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

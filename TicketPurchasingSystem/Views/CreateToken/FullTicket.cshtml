@@ -1,0 +1,91 @@
+﻿@model TicketPurchasingSystem.Models.Journey
+
+@{
+    ViewBag.Title = "FullTicket";
+}
+
+<h2>You Token For Purchasing Ticket</h2>
+<h4>Print it and go to the ticket counter</h4>
+<style>
+    h2, h4{
+        text-align: center;
+    }
+    #FullTicket{
+        width: 50%;
+        margin: auto auto 100px auto;
+        text-align:left;
+    }
+    .btn-print{
+        background: #303E64;
+        color: white;
+        border-radius: 30px;
+        width: 200px;
+        border: 1px solid #48801F;
+    }
+    .dl-horizontal dt {
+        text-align: left;
+        width: 230px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+<div id="FullTicket">
+    <h4>Journey</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="label-for-input">@Html.DisplayNameFor(model => model.JourneyStart)</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JourneyStart)
+        </dd>
+
+        <dt>
+            <label class="label-for-input">@Html.DisplayNameFor(model => model.JourneyEnd)</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JourneyEnd)
+        </dd>
+
+        <dt>
+            <label class="label-for-input">@Html.DisplayNameFor(model => model.JourneyDate)</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JourneyDate)
+        </dd>
+
+        <dt>
+            <label class="label-for-input">@Html.DisplayNameFor(model => model.TokenNumber)</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TokenNumber)
+        </dd>
+
+        <dt>
+            <label class="label-for-input">@Html.DisplayNameFor(model => model.CoatchType)</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoatchType)
+        </dd>
+        <dt>
+            <label class="label-for-input">@Html.DisplayNameFor(model => model.TimeOfJourney)</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeOfJourney)
+        </dd>
+
+    </dl>
+    <div class="form-group">
+        <div class="col-md-offset-5 col-md-7">
+            <input type="submit" value="Print Token" class="btn btn-primary btn-print" />
+        </div>
+    </div>
+</div>
+}
